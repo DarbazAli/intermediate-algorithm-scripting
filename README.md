@@ -78,19 +78,19 @@ You will be provided with an initial array (the first argument in the destroyer 
 **Note**
 You have to use the arguments object.
 
-    ``` javascript
-    const destroyer = (arr) => {
+``` javascript
+const destroyer = (arr) => {
 
-        // change all args into array
-        let args = [...arguments];
+    // change all args into array
+    let args = [...arguments];
 
-        // remove args from array
-        args.splice(0, 1);
-        
-        // filter the array
-        return arr.filter(function (value) {
-            return args.indexOf(value) === -1
-        });
+    // remove args from array
+    args.splice(0, 1);
     
-    }
-    ```
+    // filter the array
+    return arr.filter(function (value) {
+        return args.indexOf(value) === -1
+    });
+
+}
+```
