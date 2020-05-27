@@ -55,7 +55,7 @@ For example, sumAll([4,1]) should return 10 because sum of all the numbers betwe
 
 Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
 
-Note
+**Note**
 You can return the array with its elements in any order.
 
 
@@ -69,3 +69,28 @@ You can return the array with its elements in any order.
     let arr2 = [1, 2, 3, 4, 5];
 
     console.log(diffArray(arr1, arr2))  // 4
+
+
+## 03) Seek and Destroy
+
+You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+
+**Note**
+You have to use the arguments object.
+
+    ``` 
+    const destroyer = (arr) => {
+
+        // change all args into array
+        let args = [...arguments];
+
+        // remove args from array
+        args.splice(0, 1);
+        
+        // filter the array
+        return arr.filter(function (value) {
+            return args.indexOf(value) === -1
+        });
+    
+    }
+    ```
