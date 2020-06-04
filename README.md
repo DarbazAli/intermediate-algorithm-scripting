@@ -6,50 +6,50 @@ We'll pass you an array of two numbers. Return the sum of those two numbers plus
 
 For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
 
+```javascript
+// Procedural Approach;
+const sumAll = arr => {
 
-    // Procedural Approach;
-    const sumAll = arr => {
+    let min;
+    let max;
+    let sum = 0;
 
-        let min;
-        let max;
-        let sum = 0;
-
-        // sort the array
-        if ( arr[0] > arr[1]) {
-            min = arr[1];
-            max = arr[0]
-        } else {
-            min = arr[0];
-            max = arr[1];
-        }
-
-
-        // generate the range
-        for (let i = min; i <= max; i++) {
-            sum += i;
-        }
-
-        return sum;
+    // sort the array
+    if ( arr[0] > arr[1]) {
+        min = arr[1];
+        max = arr[0]
+    } else {
+        min = arr[0];
+        max = arr[1];
     }
 
 
-
-    // Functional Approach
-    function sumAllFunc(arr) {
-        var sum = 0;
-        arr.sort(function(a,b) {return a-b;});
-        for (var i = arr[0]; i <= arr[1]; i++) {
+    // generate the range
+    for (let i = min; i <= max; i++) {
         sum += i;
-        }
-        return sum;
     }
 
-    console.log(sumAll([1, 4]));    // 10
-    console.log(sumAll([4, 1]));    // 10
-    console.log(sumAll([0, 0]));    // 0
+    return sum;
+}
 
-    console.log(sumAllFunc([0, 0]));    // 0
 
+
+// Functional Approach
+function sumAllFunc(arr) {
+    var sum = 0;
+    arr.sort(function(a,b) {return a-b;});
+    for (var i = arr[0]; i <= arr[1]; i++) {
+    sum += i;
+    }
+    return sum;
+}
+
+console.log(sumAll([1, 4]));    // 10
+console.log(sumAll([4, 1]));    // 10
+console.log(sumAll([0, 0]));    // 0
+
+console.log(sumAllFunc([0, 0]));    // 0
+```
 
 ## 02) Diff Two Arrays
 
@@ -58,18 +58,18 @@ Compare two arrays and return a new array with any items only found in one of th
 **Note**
 You can return the array with its elements in any order.
 
+```javascript
+const diffArray = ( arr1, arr2 ) => {
+return arr1.concat(arr2)
+    .filter( item => !arr1.includes(item) || 
+        !arr2.includes(item));
+}
 
-    const diffArray = ( arr1, arr2 ) => {
-    return arr1.concat(arr2)
-        .filter( item => !arr1.includes(item) || 
-            !arr2.includes(item));
-    }
+let arr1 = [1, 2, 3, 5];
+let arr2 = [1, 2, 3, 4, 5];
 
-    let arr1 = [1, 2, 3, 5];
-    let arr2 = [1, 2, 3, 4, 5];
-
-    console.log(diffArray(arr1, arr2))  // 4
-
+console.log(diffArray(arr1, arr2))  // 4
+```
 
 ## 03) Seek and Destroy
 
@@ -128,11 +128,11 @@ function whatIsInAName(collection, source) {
 
 Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
 
-spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".
-spinalCase("thisIsSpinalTap") should return "this-is-spinal-tap".
-spinalCase("The_Andy_Griffith_Show") should return "the-andy-griffith-show".
-spinalCase("Teletubbies say Eh-oh") should return "teletubbies-say-eh-oh".
-spinalCase("AllThe-small Things") should return "all-the-small-things".
+**spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".**\
+**spinalCase("thisIsSpinalTap") should return "this-is-spinal-tap".**\
+**spinalCase("The_Andy_Griffith_Show") should return "the-andy-griffith-show".**\
+**spinalCase("Teletubbies say Eh-oh") should return "teletubbies-say-eh-oh".**\
+**spinalCase("AllThe-small Things") should return "all-the-small-things".**
 
 ```javascript
 const spinalCase = str =>  str.replace(/([a-z])([A-Z])/g, `$1-$2`).replace(/\s+|_+/g, `-`).toLowerCase();
@@ -280,10 +280,10 @@ Find the missing letter in the passed letter range and return it.
 
 If all letters are present in the range, return undefined.
 
-**fearNotLetter("abce") should return "d".**
-**fearNotLetter("abcdefghjklmno") should return "i".**
-**fearNotLetter("stvwx") should return "u".**
-**fearNotLetter("bcdf") should return "e".**
+**fearNotLetter("abce") should return "d".**\
+**fearNotLetter("abcdefghjklmno") should return "i".**\
+**fearNotLetter("stvwx") should return "u".**\
+**fearNotLetter("bcdf") should return "e".**\
 **fearNotLetter("abcdefghijklmnopqrstuvwxyz") should return undefined.**
 
 ```javascript
@@ -313,8 +313,8 @@ In other words, all values present from all arrays should be included in their o
 
 The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
 
-**uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) should return [1, 3, 2, 5, 4].**
-**uniteUnique([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].**
+**uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]) should return [1, 3, 2, 5, 4].**\
+**uniteUnique([1, 2, 3], [5, 2, 1]) should return [1, 2, 3, 5].**\
 **uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 5, 4, 6, 7, 8].**
 
 ```javascript
@@ -338,12 +338,12 @@ console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]));
 ## 11) Convert HTML Entities
 Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
 
-**convertHTML("Dolce & Gabbana") should return "Dolce &amp; Gabbana".**
-**convertHTML("Hamburgers < Pizza < Tacos") should return "Hamburgers &lt; Pizza &lt; Tacos".**
-**convertHTML("Sixty > twelve") should return "Sixty &gt; twelve".**
-**convertHTML('Stuff in "quotation marks"') should return "Stuff in &quot;quotation marks&quot;".**
-**convertHTML("Schindler's List") should return "Schindler&apos;s List".**
-**convertHTML("<>") should return "&lt;&gt;".**
+**convertHTML("Dolce & Gabbana") should return "Dolce &amp; Gabbana".**\
+**convertHTML("Hamburgers < Pizza < Tacos") should return "Hamburgers &lt; Pizza &lt; Tacos".**\
+**convertHTML("Sixty > twelve") should return "Sixty &gt; twelve".**\
+**convertHTML('Stuff in "quotation marks"') should return "Stuff in &quot;quotation marks&quot;".**\
+**convertHTML("Schindler's List") should return "Schindler&apos;s List".**\
+**convertHTML("<>") should return "&lt;&gt;".**\
 **convertHTML("abc") should return "abc".**
 
 
